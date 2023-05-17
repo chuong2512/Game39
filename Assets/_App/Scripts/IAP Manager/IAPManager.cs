@@ -13,6 +13,12 @@ public class Key
     public const string PACK4 = "game_39_4";
     public const string PACK5 = "game_39_5";
     public const string PACK6 = "game_39_1";
+    
+    public const string PACK1_REGISTER = "register_game39_pack1";
+    public const string PACK2_REGISTER = "register_game39_pack2";
+    public const string PACK3_REGISTER = "register_game39_pack3";
+    public const string PACK4_REGISTER = "register_game39_pack4";
+    public const string PACK5_REGISTER = "register_game39_pack5";
 }
 
 public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
@@ -51,6 +57,13 @@ public class IAPManager : PersistentSingleton<IAPManager>, IStoreListener
         builder.AddProduct(Key.PACK4, ProductType.Consumable);
         builder.AddProduct(Key.PACK5, ProductType.Consumable);
         builder.AddProduct(Key.PACK6, ProductType.Consumable);
+        
+        builder.AddProduct(Key.PACK1_REGISTER, ProductType.Subscription);
+        builder.AddProduct(Key.PACK2_REGISTER, ProductType.Subscription);
+        builder.AddProduct(Key.PACK3_REGISTER, ProductType.Subscription);
+        builder.AddProduct(Key.PACK4_REGISTER, ProductType.Subscription);
+        builder.AddProduct(Key.PACK5_REGISTER, ProductType.Subscription);
+        
         UnityPurchasing.Initialize(this, builder);
     }
 

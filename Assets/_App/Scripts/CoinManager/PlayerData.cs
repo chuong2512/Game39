@@ -16,6 +16,23 @@ public class PlayerData : BaseData
     public int score = 0;
     public int currentScore = 0;
 
+
+    public long time;
+    public string timeRegister;
+
+    public void SetTimeRegister(long timeSet)
+    {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = timeSet;
+        Save();
+    }
+
+    public void ResetTime()
+    {
+        time = 0;
+        Save();
+    }
+
     public Action<int> onChangeDiamond;
 
     public override void Init()
@@ -36,12 +53,15 @@ public class PlayerData : BaseData
         {
             score = high;
         }
-        
+
         Save();
     }
 
     public override void ResetData()
     {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = 30 * 24 * 60 * 60;
+
         intDiamond = 0;
         currentSkin = 0;
 
@@ -55,7 +75,6 @@ public class PlayerData : BaseData
 
     public void Unlock(int id)
     {
-
         Save();
     }
 
@@ -64,7 +83,7 @@ public class PlayerData : BaseData
         intDiamond += a;
 
         onChangeDiamond?.Invoke(intDiamond);
-        
+
         Save();
     }
 
@@ -83,7 +102,7 @@ public class PlayerData : BaseData
         }
 
         onChangeDiamond?.Invoke(intDiamond);
-        
+
         Save();
     }
 

@@ -33,6 +33,11 @@ public class PurchasingManager : MonoBehaviour
                     GameDataManager.Instance.playerData.AddDiamond(200);
                 IAPManager.Instance.BuyProductID(Key.PACK5);
                 break;
+            case 6:
+                IAPManager.OnPurchaseSuccess = () =>
+                    GameDataManager.Instance.playerData.AddDiamond(500);
+                IAPManager.Instance.BuyProductID(Key.PACK6);
+                break;
         }
     }
 
